@@ -20,6 +20,9 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             checkBox1.Checked = true;
+            textBox1.Text = "funciona";
+            // este es un comentario
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -30,6 +33,12 @@ namespace WindowsFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
             MessageBox.Show("este es un mensaje");
+            textBox3.Text = "funciona 3";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = "funciona 2";
         }
     }
 }
