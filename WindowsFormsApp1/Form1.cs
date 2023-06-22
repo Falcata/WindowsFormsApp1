@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class FormLogin : Form
     {
-        public Form1()
+        public FormLogin()
         {
             InitializeComponent();
         }
@@ -26,6 +26,25 @@ namespace WindowsFormsApp1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            sqlManagement objDbgestor = new sqlManagement();
+            Console.WriteLine("entrando en conexion");
+            objDbgestor.conexion(); // abre la conexion
+            
+            
+        }
+
+        private void linkLogoff_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+           this.Close();    
+        }
+
+        private void pictureLogoff_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
