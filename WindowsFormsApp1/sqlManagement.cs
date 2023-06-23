@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
-
-
-
+using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
@@ -35,20 +33,26 @@ namespace WindowsFormsApp1
             return sqlite_conn;
 
         }
-        public void buscar()
+        public void buscar(String Nombre, String Apellidos )
         {
             SQLiteDataReader sqlite_datareader;
             SQLiteCommand sqlite_cmd;
             sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "SELECT * FROM USUARIOS";
+            sqlite_cmd.CommandText = "SELECT * FROM USUARIOS"; // podemos hacer un where...
             
             try {
 
                 sqlite_datareader = sqlite_cmd.ExecuteReader();
                 while (sqlite_datareader.Read())
                 {
-                    string myreader = sqlite_datareader.GetString(1).ToString();
-                    Console.WriteLine(myreader);
+                    // esto es pura fuerza bruta descargando toda la tabla y leyendola
+                    string nombre = sqlite_datareader.GetString(1).ToString();
+                    string apellidos = sqlite_datareader.GetString(2).ToString();
+                    if (nombre == Nombre && apellidos == Apellidos)
+                    {
+                        MessageBox.Show("User & Password tested!");
+                    }
+                   
                 }
             }
             catch (Exception ex) {

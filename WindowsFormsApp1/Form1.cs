@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
             sqlManagement objDbgestor = new sqlManagement();
             Console.WriteLine("entrando en conexion");
             objDbgestor.conexion(); // abre la conexion
-            objDbgestor.buscar();      
+            objDbgestor.buscar(textUser.Text, textPassword.Text);      
             
             
         }
