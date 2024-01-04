@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -17,7 +10,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -32,23 +25,29 @@ namespace WindowsFormsApp1
         {
             sqlManagement objDbgestor = new sqlManagement();
             Console.WriteLine("entrando en conexion");
-            objDbgestor.conexion(); // abre la conexion
+            Console.WriteLine("probando...");
             
-            if (objDbgestor.buscar(textUser.Text, textPassword.Text)){
+            objDbgestor.conexion(); // abre la conexion
 
-                
+            if (objDbgestor.buscar(textUser.Text, textPassword.Text))
+            {
+
+
                 this.Hide();
                 var formulario = new MDIParent1();
-                formulario.Show(); 
-                
-            }    
-            
-            
+                formulario.Show();
+
+            }
+            else {
+                MessageBox.Show("Usuario erroneo"); // conviene crear un form de rechazo del mismo tipo
+            }
+
+
         }
 
         private void linkLogoff_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-           this.Close();    
+            this.Close();
         }
 
         private void pictureLogoff_Click(object sender, EventArgs e)
